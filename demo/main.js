@@ -32,4 +32,4 @@ a = "Himanshu";
 a = 10;
 console.log(a);
 var b = 10;
-name = 'Aman';
+name = "Aman";
