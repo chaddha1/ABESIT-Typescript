@@ -93,8 +93,6 @@ fullName({ firstName: "himanshu", lastName: "Chaddha" });
 myMessage({ firstName: "himanshu" });
 /*Classes And Access Modifiers */
 var Employee = /** @class */ (function () {
-    // public employeeName: string;
-    // private employeeName: string;
     // protected employeeName: string;
     function Employee(empName) {
         this.employeeName = empName;
@@ -105,7 +103,7 @@ var Employee = /** @class */ (function () {
     return Employee;
 }());
 var emp1 = new Employee("Himanshu");
-console.log(emp1.employeeName);
+// console.log(emp1.employeeName);
 emp1.greet();
 var Manager = /** @class */ (function (_super) {
     __extends(Manager, _super);
@@ -113,11 +111,11 @@ var Manager = /** @class */ (function (_super) {
         return _super.call(this, managerName) || this;
     }
     Manager.prototype.delegateWork = function () {
-        console.log("Manager delegating tasks. " + this.employeeName);
+        // console.log(`Manager delegating tasks. ${this.employeeName}`);
     };
     return Manager;
 }(Employee));
 var m1 = new Manager("Rachit");
-console.log(m1.employeeName);
+// console.log(m1.employeeName);
 m1.greet();
 m1.delegateWork();

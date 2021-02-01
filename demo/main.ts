@@ -104,9 +104,9 @@ myMessage({ firstName: "himanshu" });
 
 /*Classes And Access Modifiers */
 class Employee {
-  employeeName: string;
+  // employeeName: string;
   // public employeeName: string;
-  // private employeeName: string;
+  private employeeName: string;
   // protected employeeName: string;
   constructor(empName: string) {
     this.employeeName = empName;
@@ -115,10 +115,10 @@ class Employee {
   public greet() {
     console.log(`Good Morning! ${this.employeeName}`);
   }
-}
+} 
 
 let emp1 = new Employee("Himanshu");
-console.log(emp1.employeeName);
+// console.log(emp1.employeeName);
 emp1.greet();
 
 class Manager extends Employee {
@@ -127,11 +127,11 @@ class Manager extends Employee {
   }
 
   public delegateWork() {
-    console.log(`Manager delegating tasks. ${this.employeeName}`);
+    // console.log(`Manager delegating tasks. ${this.employeeName}`);
   }
 }
 
 const m1 = new Manager("Rachit");
-console.log(m1.employeeName);
+// console.log(m1.employeeName);
 m1.greet();
 m1.delegateWork();
