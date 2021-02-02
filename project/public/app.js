@@ -1,35 +1,35 @@
-"use strict";
-class Invoice {
-    //   readonly client: string;
-    //   details: string;
-    //   amount: number;
-    constructor(client, details, amount) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-        // this.client = c;
-        // this.details = d;
-        // this.amount = a;
-    }
-    format() {
-        return `${this.client} owes Rs.${this.amount} for ${this.details}`;
-    }
-}
-const invOne = new Invoice("Himanshu", "Course 1", 1000);
-const invTwo = new Invoice("Aman", "Course 2", 2000);
-let invoices = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-console.log(invoices);
-console.log(invOne.client);
+import { Invoice } from "./classes/Invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
+import { Payment } from "./classes/Payment.js";
+// let docOne : HasFormatter;
+// let docTwo : HasFormatter;
+// docOne = new Invoice('Abhishek','MEAN Course',2000);
+// docTwo = new Payment('Shivam','MEAN Course',1000);
+// let docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
 const form = document.querySelector(".new-item-form");
-console.log(form);
-console.log(form.children);
 const type = document.querySelector("#type");
 const toFrom = document.querySelector("#tofrom");
 const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log(type.value, toFrom.value, details.value, amount.valueAsNumber);
+const ul = document.querySelector('ul');
+const list = new ListTemplate(ul);
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let doc;
+    if (type.value === "invoice") {
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    list.render(doc, type.value, 'end');
+    clear();
 });
+function clear() {
+    type.value = "invoice";
+    toFrom.value = "";
+    details.value = "";
+    amount.value = "";
+}
