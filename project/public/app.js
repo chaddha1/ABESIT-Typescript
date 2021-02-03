@@ -13,7 +13,7 @@ const type = document.querySelector("#type");
 const toFrom = document.querySelector("#tofrom");
 const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
-const ul = document.querySelector('ul');
+const ul = document.querySelector("ul");
 const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ form.addEventListener("submit", (e) => {
     else {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
-    list.render(doc, type.value, 'end');
+    list.render(doc, type.value, "end");
     clear();
 });
 function clear() {
@@ -33,3 +33,10 @@ function clear() {
     details.value = "";
     amount.value = "";
 }
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+const docOne = addUID({ name: 'Himanshu', age: 25 });
+console.log(docOne);
+console.log(docOne.name);
