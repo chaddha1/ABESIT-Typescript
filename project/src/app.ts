@@ -42,11 +42,15 @@ function clear() {
 }
 
 const addUID = <T extends {name:string}>(obj: T) => {
-  let uid = Math.floor(Math.random() * 100);
+  let uid = Math.floor(Math.random() * 1000);
   return { ...obj, uid };
 };
 
-const docOne = addUID({name:'Himanshu',age:25})
+const docOne = addUID({name:'Himanshu', age:25,hi:'hello'});
+const docTwo = addUID({name:'abhishek'});
 console.log(docOne);
-console.log(docOne.name);
+console.log(docTwo);
+
+// const arr: number[] = [1,1];
+const arr: Array<number[]> = [[]];
 
